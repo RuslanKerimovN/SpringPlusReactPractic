@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping
 public class StudentController {
@@ -18,25 +19,29 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    @GetMapping
+    @GetMapping("/")
     public List<Student> getStudents() {
         return studentService.getAllStudents();
     }
 
-    @PostMapping("/add")
+    @PostMapping("/add-student")
     public void addStudent(@RequestBody Student student) {
         studentService.addStudent(student);
     }
 
-    @DeleteMapping(path = "{studentId}")
+    @DeleteMapping(path = "/delete/{studentId}")
     public void deleteStudent(@PathVariable("studentId") Long studentId) {
         studentService.deleteStudent(studentId);
     }
 
-    @PutMapping(path = "{studentId}")
+    @GetMapping("/students/{studentId}")
+    public Student getStudentById(@PathVariable("studentId") Long studentId) {
+        return studentService.getStudentById(studentId);
+    }
+
+    @PutMapping(path = "/update/{studentId}")
     public void updateStudent(@PathVariable("studentId") Long studentId,
-                              @RequestParam(required = false) String studentName,
-                              @RequestParam(required = false) String studentSurname) {
-        studentService.updateStudent(studentId, studentName, studentSurname);
+                              @RequestBody Student student) {
+        studentService.updateStudent(studentId, student);
     }
 }
