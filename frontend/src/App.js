@@ -5,7 +5,7 @@ import {BrowserRouter as Router } from 'react-router-dom';
 import {Routes, Route} from 'react-router';
 import AddStudentComponent from './components/AddStudentComponent';
 import DeleteStudentComponent from './components/DeleteStudentComponent';
-import UpdateStudentComponent from './components/UpdateStudentComponent';
+import UpdateComponent from './components/UpdateComponent';
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
                 <Route path="/students" element={<ListStudentsComponents />}/>
                 <Route path="/add-student" element={<AddStudentComponent />}/>
                 <Route path="/delete" element={<DeleteStudentComponent />}/>
-                <Route path="/update/:id" element={<UpdateStudentComponent />}/>
+                <Route path="/update/:id" element={<UpdateComponent />}/>
             </Routes>
           </div>
       </Router>

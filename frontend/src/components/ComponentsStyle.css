@@ -21,6 +21,12 @@
     border-radius: 20px;
 }
 
+.update-student-form-lebel {
+    font-size: 20px;
+    font-weight: 500;
+    color: red;
+}
+
 .delete-student-form {
     width: 300px; height: 300px;
     margin: auto;

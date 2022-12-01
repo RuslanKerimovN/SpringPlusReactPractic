@@ -5,6 +5,7 @@ import com.example.springplusreactpractic.repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
@@ -23,7 +24,8 @@ public class StudentService {
     }
 
     public List<Student> getAllStudents() {
-        return studentRepository.findAll();
+
+        return studentRepository.findAll(Sort.by(Sort.Direction.ASC, "studentId"));
     }
 
     public void addStudent(Student student) {
