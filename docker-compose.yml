@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  db_auth:
+    image: postgres:15.1-alpine3.17
+    restart: always
+    container_name: postgres-1993
+    environment:
+      - 'POSTGRES_PASSWORD=root'
+      - 'POSTGRES_USER=postgres'
+      - 'POSTGRES_DB=postgres'
+  
+  server:
+    build: Backend/
+    container_name: 'java-server'
+    restart: always
+    ports: 
+    - 8080:8080
+
+  client:
+    build: frontend/
+    container_name: 'client'
+    restart: always
+    ports:
+      - 8081:3000

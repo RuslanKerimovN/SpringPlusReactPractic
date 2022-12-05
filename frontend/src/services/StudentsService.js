@@ -4,6 +4,7 @@ const STUDENT_URL = "http://localhost:8080/";
 const ADD_STUDENT_URL = "http://localhost:8080/add-student";
 const REMOVE_STUDENT_URL = "http://localhost:8080/delete";
 const UPDATE_STUDENT_URL = "http://localhost:8080/update";
+const ONE_STUDENT_URL = "http://localhost:8080/students/";
 
 class StudentService {
 
@@ -21,6 +22,10 @@ class StudentService {
 
     updateStudent(id, student) {
         return axios.put(UPDATE_STUDENT_URL + '/' + id, student);
+    }
+
+    getOneStudent(studentId) {
+        return axios.get(ONE_STUDENT_URL + studentId)
     }
 }
 
