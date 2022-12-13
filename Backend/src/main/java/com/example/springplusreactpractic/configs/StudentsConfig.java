@@ -5,8 +5,6 @@ import com.example.springplusreactpractic.repository.StudentRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -24,17 +22,16 @@ public class StudentsConfig {
             Student tanya = new Student("Tanya", "Artemeva",
                     LocalDate.of(1987, Month.JANUARY, 22));
 
-            Student katya = new Student("Katya", "Kerimova",
-                    LocalDate.of(1973, Month.MAY, 2));
+            Student katya = new Student("Katya", "Zinova",
+                    LocalDate.of(1993, Month.MAY, 10));
 
-            studentRepository.saveAll(List.of(ruslan, tanya, katya));
+            Student olga = new Student("Olga", "Yousupova",
+                    LocalDate.of(1989, Month.OCTOBER, 7));
+
+            Student viktor = new Student("Viktor", "Perestukin",
+                    LocalDate.of(1966, Month.APRIL, 20));
+
+            studentRepository.saveAll(List.of(ruslan, tanya, katya, olga, viktor));
         };
     }
-
-//    @Override
-//    public void addCorsMappings(CorsRegistry registry) {
-//        registry.addMapping("/**")
-//                .allowedOrigins("*")
-//                .allowedMethods("*");
-//    }
 }

@@ -1,5 +1,7 @@
 package com.example.springplusreactpractic.models;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;

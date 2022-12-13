@@ -11,9 +11,6 @@ class UpdateStudentComponent extends Component {
             studentName: '',
             studentSurname: '',
             dateOfBirthday: '',
-            printName: '',
-            printSurname: '',
-            printDateOfBirthday: ''
         }
 
         this.updateStudentNameHanlder = this.updateStudentNameHanlder.bind(this);
@@ -26,10 +23,9 @@ class UpdateStudentComponent extends Component {
     componentDidMount() {
         StudentsService.getOneStudent(this.props.studentId).then((res) => {
             let student = res.data;
-            this.setState({printName: student.studentName ,
-            printSurname: student.studentSurname,
-            printDateOfBirthday: student.dateOfBirthday});
-            //console.log(this.state.printName + ' ' + this.state.printSurname + ' ' + this.state.printDateOfBirthday);
+            this.setState({studentName: student.studentName,
+                studentSurname: student.studentSurname,
+                dateOfBirthday: student.dateOfBirthday});
         });
 
     }
@@ -67,21 +63,21 @@ class UpdateStudentComponent extends Component {
                     <div>
                         <label className='update-student-form-lebel'> Name: </label>
                         <div>
-                            <input placeholder={this.state.printName} value={this.state.studentName}
+                            <input value={this.state.studentName}
                                 onChange={this.updateStudentNameHanlder}/>
                         </div>
                     </div>
                     <div>
                         <label className='update-student-form-lebel'> Surname: </label>
                         <div>
-                            <input placeholder={this.state.printSurname} value={this.state.studentSurname} 
+                            <input value={this.state.studentSurname} 
                                 onChange={this.updateStudentSurnameHanlder}/>
                         </div>
                     </div>
                     <div>
                         <label className='update-student-form-lebel'> BirthDay: </label>
                         <div>
-                            <input placeholder={this.state.printDateOfBirthday} value={this.state.dateOfBirthday}
+                            <input value={this.state.dateOfBirthday}
                                 onChange={this.updateStudentDateOfBirthdayHanlder}/>
                         </div>
                     </div>
