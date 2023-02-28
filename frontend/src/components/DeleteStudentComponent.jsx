@@ -24,11 +24,10 @@ class DeleteStudentComponent extends Component {
         element.preventDefault();
 
         let student = this.state.studentId;
-        console.log(JSON.stringify(student));
 
-        StudentsService.removeStudent(student);
-        
-        window.location.href = '/';
+        StudentsService.removeStudent(student)
+            .then((res) => window.location.href = '/')
+            .catch((res) => window.alert('Student not found, try one more time'))
     }
         
 

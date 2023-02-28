@@ -36,11 +36,11 @@ class AddStudentComponent extends Component {
         let student = {studentName: this.state.studentName, 
             studentSurname: this.state.studentSurname, 
             dateOfBirthday: this.state.dateOfBirthday};
-        console.log(JSON.stringify(student));
 
-        StudentsService.addStudent(student);
-        window.alert('Student was Added')
-        window.location.href = '/';
+        StudentsService.addStudent(student)
+            .then((res) => {window.alert('Student was Added')
+                window.location.href = '/';})
+            .catch((res) => window.alert('Student dont Add'));
     }
 
     render() {
@@ -65,7 +65,7 @@ class AddStudentComponent extends Component {
                                 </div>
                             </div>
                             <div>
-                                <label className='add-student-form-lebel'> Birthday: </label>
+                                <label className='add-student-form-lebel'> Birthday (YYYY-MM-DD): </label>
                                 <div>
                                     <input placeholder="Student birthday" value={this.state.dateOfBirthday}
                                         onChange={this.changeStudentBirthdayHanlder}/>
